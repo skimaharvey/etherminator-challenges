@@ -1,0 +1,9 @@
+{
+  "name": "hardhat-project",
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-etherscan": "^3.0.3"
+  }
+}

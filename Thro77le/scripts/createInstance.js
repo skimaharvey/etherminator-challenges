@@ -1,0 +1,22 @@
+
+
+const main = async () => {
+
+    const SetupFactory = await hre.ethers.getContractFactory("Setup")
+    const setup = await SetupFactory.deploy()
+    await setup.deployed()
+
+    await setup.createInstance({value: 0})
+
+    
+}
+
+
+
+
+main()
+.then(() => process.exit(0))
+.catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
