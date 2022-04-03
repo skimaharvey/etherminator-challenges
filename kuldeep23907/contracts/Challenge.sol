@@ -3,6 +3,7 @@ pragma solidity 0.8.4;
 
 import "@openzeppelin/contracts/proxy/Proxy.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol";
+import "hardhat/console.sol";
 
 contract Challenge {
     address public sloganContract;
@@ -23,7 +24,7 @@ contract Slogan {
     address public currentSloganOwner;
 
     function setSlogan(string memory _str) public payable returns (bool) {
-        require(msg.value == 0.001 ether);
+        require(msg.value == 100000 gwei);
         slogan = _str;
         currentSloganOwner = msg.sender;
         return true;
