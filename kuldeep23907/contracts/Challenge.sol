@@ -24,7 +24,9 @@ contract Slogan {
     address public currentSloganOwner;
 
     function setSlogan(string memory _str) public payable returns (bool) {
+        console.log("inside setSlogan");
         require(msg.value == 100000 gwei);
+
         slogan = _str;
         currentSloganOwner = msg.sender;
         return true;
@@ -33,7 +35,7 @@ contract Slogan {
 
 contract InitialiazableUpgradeableProxy is Proxy, ERC1967Upgrade {
     function initialize(address _logic, bytes memory _data) public payable {
-        require(_implementation() == address(0));
+        require(_implementation() == address(0), "initialized already called");
         assert(
             _IMPLEMENTATION_SLOT ==
                 bytes32(uint256(keccak256("eip1967.proxy.implementation")) - 1)
